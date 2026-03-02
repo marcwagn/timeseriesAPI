@@ -8,7 +8,7 @@ class Config(BaseSettings):
 
     timescale_user: str = ""
     timescale_password: str = ""
-    timescale_dsn: str = "localhost:5432"
+    timescale_dsn: str = ""
 
     model_config = {
         "env_file": Path(__file__).resolve().parent.parent / ".env",

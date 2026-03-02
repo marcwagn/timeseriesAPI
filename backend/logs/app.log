@@ -1668,3 +1668,64 @@ FROM timeseries_data
 WHERE timeseries_data.timeseries_id = $1::INTEGER ORDER BY timeseries_data.timestamp, timeseries_data.created_at DESC
 2026-03-02 19:21:07,276 [INFO] [sqlalchemy.engine.Engine] [generated in 0.00047s] (1,)
 2026-03-02 19:21:07,281 [INFO] [sqlalchemy.engine.Engine] COMMIT
+2026-03-02 21:59:28,289 [DEBUG] [asyncio] Using proactor: IocpProactor
+2026-03-02 21:59:28,290 [DEBUG] [asyncio] Using proactor: IocpProactor
+2026-03-02 21:59:28,358 [DEBUG] [asyncio] Using proactor: IocpProactor
+2026-03-02 21:59:28,922 [DEBUG] [asyncio] Using proactor: IocpProactor
+2026-03-02 21:59:29,414 [DEBUG] [asyncio] Using proactor: IocpProactor
+2026-03-02 21:59:29,432 [INFO] [httpx] HTTP Request: POST http://test/timeseries/ "HTTP/1.1 422 Unprocessable Entity"
+2026-03-02 21:59:29,671 [DEBUG] [asyncio] Using proactor: IocpProactor
+2026-03-02 21:59:30,305 [DEBUG] [asyncio] Using proactor: IocpProactor
+2026-03-02 21:59:30,969 [DEBUG] [asyncio] Using proactor: IocpProactor
+2026-03-02 22:01:20,869 [DEBUG] [asyncio] Using proactor: IocpProactor
+2026-03-02 22:01:20,870 [DEBUG] [asyncio] Using proactor: IocpProactor
+2026-03-02 22:01:20,944 [DEBUG] [asyncio] Using proactor: IocpProactor
+2026-03-02 22:01:21,474 [DEBUG] [asyncio] Using proactor: IocpProactor
+2026-03-02 22:01:21,871 [DEBUG] [asyncio] Using proactor: IocpProactor
+2026-03-02 22:01:21,874 [INFO] [httpx] HTTP Request: POST http://test/timeseries/ "HTTP/1.1 422 Unprocessable Entity"
+2026-03-02 22:01:21,892 [DEBUG] [asyncio] Using proactor: IocpProactor
+2026-03-02 22:01:22,263 [DEBUG] [asyncio] Using proactor: IocpProactor
+2026-03-02 22:01:22,694 [DEBUG] [asyncio] Using proactor: IocpProactor
+2026-03-02 22:01:43,839 [DEBUG] [asyncio] Using proactor: IocpProactor
+2026-03-02 22:01:43,840 [DEBUG] [asyncio] Using proactor: IocpProactor
+2026-03-02 22:01:43,916 [DEBUG] [asyncio] Using proactor: IocpProactor
+2026-03-02 22:03:18,170 [DEBUG] [asyncio] Using proactor: IocpProactor
+2026-03-02 22:03:18,171 [DEBUG] [asyncio] Using proactor: IocpProactor
+2026-03-02 22:03:18,256 [INFO] [httpx] HTTP Request: POST http://test/timeseries/ "HTTP/1.1 201 Created"
+2026-03-02 22:03:18,307 [INFO] [httpx] HTTP Request: POST http://test/timeseries/ "HTTP/1.1 201 Created"
+2026-03-02 22:03:18,335 [INFO] [httpx] HTTP Request: POST http://test/timeseries/ "HTTP/1.1 422 Unprocessable Entity"
+2026-03-02 22:03:18,371 [INFO] [httpx] HTTP Request: POST http://test/timeseries/ "HTTP/1.1 201 Created"
+2026-03-02 22:03:18,379 [INFO] [httpx] HTTP Request: POST http://test/timeseries/ "HTTP/1.1 201 Created"
+2026-03-02 22:03:18,431 [INFO] [httpx] HTTP Request: POST http://test/timeseries/ "HTTP/1.1 201 Created"
+2026-03-02 22:03:18,441 [INFO] [httpx] HTTP Request: GET http://test/timeseries/5 "HTTP/1.1 200 OK"
+2026-03-02 22:03:18,488 [INFO] [httpx] HTTP Request: GET http://test/timeseries/99999 "HTTP/1.1 404 Not Found"
+2026-03-02 22:06:20,173 [DEBUG] [asyncio] Using proactor: IocpProactor
+2026-03-02 22:06:20,174 [DEBUG] [asyncio] Using proactor: IocpProactor
+2026-03-02 22:06:20,308 [INFO] [httpx] HTTP Request: POST http://test/timeseries/ "HTTP/1.1 201 Created"
+2026-03-02 22:06:20,372 [INFO] [httpx] HTTP Request: POST http://test/timeseries/ "HTTP/1.1 201 Created"
+2026-03-02 22:06:20,401 [INFO] [httpx] HTTP Request: POST http://test/timeseries/ "HTTP/1.1 422 Unprocessable Entity"
+2026-03-02 22:06:20,439 [INFO] [httpx] HTTP Request: POST http://test/timeseries/ "HTTP/1.1 201 Created"
+2026-03-02 22:06:20,447 [INFO] [httpx] HTTP Request: POST http://test/timeseries/ "HTTP/1.1 201 Created"
+2026-03-02 22:06:20,499 [INFO] [httpx] HTTP Request: POST http://test/timeseries/ "HTTP/1.1 201 Created"
+2026-03-02 22:06:20,509 [INFO] [httpx] HTTP Request: GET http://test/timeseries/5 "HTTP/1.1 200 OK"
+2026-03-02 22:06:20,553 [INFO] [httpx] HTTP Request: GET http://test/timeseries/99999 "HTTP/1.1 404 Not Found"
+2026-03-02 22:06:49,807 [DEBUG] [asyncio] Using proactor: IocpProactor
+2026-03-02 22:06:49,808 [DEBUG] [asyncio] Using proactor: IocpProactor
+2026-03-02 22:06:49,965 [INFO] [httpx] HTTP Request: POST http://test/timeseries/ "HTTP/1.1 201 Created"
+2026-03-02 22:06:50,021 [INFO] [httpx] HTTP Request: POST http://test/timeseries/ "HTTP/1.1 201 Created"
+2026-03-02 22:06:50,050 [INFO] [httpx] HTTP Request: POST http://test/timeseries/ "HTTP/1.1 422 Unprocessable Entity"
+2026-03-02 22:06:50,083 [INFO] [httpx] HTTP Request: POST http://test/timeseries/ "HTTP/1.1 201 Created"
+2026-03-02 22:06:50,089 [INFO] [httpx] HTTP Request: POST http://test/timeseries/ "HTTP/1.1 201 Created"
+2026-03-02 22:06:50,132 [INFO] [httpx] HTTP Request: POST http://test/timeseries/ "HTTP/1.1 201 Created"
+2026-03-02 22:06:50,140 [INFO] [httpx] HTTP Request: GET http://test/timeseries/5 "HTTP/1.1 200 OK"
+2026-03-02 22:06:50,176 [INFO] [httpx] HTTP Request: GET http://test/timeseries/99999 "HTTP/1.1 404 Not Found"
+2026-03-02 22:07:18,156 [DEBUG] [asyncio] Using proactor: IocpProactor
+2026-03-02 22:07:18,159 [DEBUG] [asyncio] Using proactor: IocpProactor
+2026-03-02 22:07:18,326 [INFO] [httpx] HTTP Request: POST http://test/timeseries/ "HTTP/1.1 201 Created"
+2026-03-02 22:07:18,396 [INFO] [httpx] HTTP Request: POST http://test/timeseries/ "HTTP/1.1 201 Created"
+2026-03-02 22:07:18,428 [INFO] [httpx] HTTP Request: POST http://test/timeseries/ "HTTP/1.1 422 Unprocessable Entity"
+2026-03-02 22:07:18,468 [INFO] [httpx] HTTP Request: POST http://test/timeseries/ "HTTP/1.1 201 Created"
+2026-03-02 22:07:18,483 [INFO] [httpx] HTTP Request: POST http://test/timeseries/ "HTTP/1.1 201 Created"
+2026-03-02 22:07:18,537 [INFO] [httpx] HTTP Request: POST http://test/timeseries/ "HTTP/1.1 201 Created"
+2026-03-02 22:07:18,549 [INFO] [httpx] HTTP Request: GET http://test/timeseries/5 "HTTP/1.1 200 OK"
+2026-03-02 22:07:18,598 [INFO] [httpx] HTTP Request: GET http://test/timeseries/99999 "HTTP/1.1 404 Not Found"
