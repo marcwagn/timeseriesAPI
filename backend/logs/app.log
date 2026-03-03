@@ -1729,3 +1729,389 @@ WHERE timeseries_data.timeseries_id = $1::INTEGER ORDER BY timeseries_data.times
 2026-03-02 22:07:18,537 [INFO] [httpx] HTTP Request: POST http://test/timeseries/ "HTTP/1.1 201 Created"
 2026-03-02 22:07:18,549 [INFO] [httpx] HTTP Request: GET http://test/timeseries/5 "HTTP/1.1 200 OK"
 2026-03-02 22:07:18,598 [INFO] [httpx] HTTP Request: GET http://test/timeseries/99999 "HTTP/1.1 404 Not Found"
+2026-03-03 20:17:56,659 [DEBUG] [asyncio] Using proactor: IocpProactor
+2026-03-03 20:17:56,662 [DEBUG] [asyncio] Using proactor: IocpProactor
+2026-03-03 20:18:39,798 [DEBUG] [asyncio] Using proactor: IocpProactor
+2026-03-03 20:18:39,801 [DEBUG] [asyncio] Using proactor: IocpProactor
+2026-03-03 20:18:39,996 [INFO] [httpx] HTTP Request: POST http://test/timeseries/ "HTTP/1.1 201 Created"
+2026-03-03 20:18:40,055 [INFO] [httpx] HTTP Request: POST http://test/timeseries/ "HTTP/1.1 201 Created"
+2026-03-03 20:18:40,086 [INFO] [httpx] HTTP Request: POST http://test/timeseries/ "HTTP/1.1 422 Unprocessable Entity"
+2026-03-03 20:18:40,125 [INFO] [httpx] HTTP Request: POST http://test/timeseries/ "HTTP/1.1 201 Created"
+2026-03-03 20:18:40,137 [INFO] [httpx] HTTP Request: POST http://test/timeseries/ "HTTP/1.1 201 Created"
+2026-03-03 20:18:40,192 [INFO] [httpx] HTTP Request: POST http://test/timeseries/ "HTTP/1.1 201 Created"
+2026-03-03 20:18:40,206 [INFO] [httpx] HTTP Request: GET http://test/timeseries/5 "HTTP/1.1 200 OK"
+2026-03-03 20:18:40,256 [INFO] [httpx] HTTP Request: GET http://test/timeseries/99999 "HTTP/1.1 404 Not Found"
+2026-03-03 20:50:00,200 [DEBUG] [passlib.utils.compat] loaded lazy attr 'SafeConfigParser': <class 'configparser.ConfigParser'>
+2026-03-03 20:50:00,200 [DEBUG] [passlib.utils.compat] loaded lazy attr 'NativeStringIO': <class '_io.StringIO'>
+2026-03-03 20:50:00,200 [DEBUG] [passlib.utils.compat] loaded lazy attr 'BytesIO': <class '_io.BytesIO'>
+2026-03-03 20:50:00,220 [DEBUG] [passlib.registry] registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2026-03-03 20:50:00,286 [DEBUG] [asyncio] Using proactor: IocpProactor
+2026-03-03 20:50:00,287 [DEBUG] [asyncio] Using proactor: IocpProactor
+2026-03-03 20:50:00,451 [WARNING] [passlib.handlers.bcrypt] (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\marcc\Documents\timeseriesAPI\backend\.venv\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2026-03-03 20:50:00,452 [DEBUG] [passlib.handlers.bcrypt] detected 'bcrypt' backend, version '<unknown>'
+2026-03-03 20:50:00,452 [DEBUG] [passlib.handlers.bcrypt] 'bcrypt' backend lacks $2$ support, enabling workaround
+2026-03-03 20:50:00,462 [INFO] [httpx] HTTP Request: POST http://test/auth/register "HTTP/1.1 400 Bad Request"
+2026-03-03 20:50:00,681 [WARNING] [passlib.handlers.bcrypt] (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\marcc\Documents\timeseriesAPI\backend\.venv\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2026-03-03 20:50:00,681 [DEBUG] [passlib.handlers.bcrypt] detected 'bcrypt' backend, version '<unknown>'
+2026-03-03 20:50:00,692 [INFO] [httpx] HTTP Request: POST http://test/auth/register "HTTP/1.1 400 Bad Request"
+2026-03-03 20:50:00,695 [WARNING] [passlib.handlers.bcrypt] (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\marcc\Documents\timeseriesAPI\backend\.venv\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2026-03-03 20:50:00,696 [DEBUG] [passlib.handlers.bcrypt] detected 'bcrypt' backend, version '<unknown>'
+2026-03-03 20:50:00,705 [INFO] [httpx] HTTP Request: POST http://test/auth/register "HTTP/1.1 400 Bad Request"
+2026-03-03 20:50:00,747 [WARNING] [passlib.handlers.bcrypt] (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\marcc\Documents\timeseriesAPI\backend\.venv\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2026-03-03 20:50:00,747 [DEBUG] [passlib.handlers.bcrypt] detected 'bcrypt' backend, version '<unknown>'
+2026-03-03 20:50:00,757 [INFO] [httpx] HTTP Request: POST http://test/auth/register "HTTP/1.1 400 Bad Request"
+2026-03-03 20:50:00,760 [WARNING] [passlib.handlers.bcrypt] (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\marcc\Documents\timeseriesAPI\backend\.venv\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2026-03-03 20:50:00,760 [DEBUG] [passlib.handlers.bcrypt] detected 'bcrypt' backend, version '<unknown>'
+2026-03-03 20:50:00,770 [INFO] [httpx] HTTP Request: POST http://test/auth/register "HTTP/1.1 400 Bad Request"
+2026-03-03 20:50:00,809 [INFO] [httpx] HTTP Request: POST http://test/auth/register "HTTP/1.1 422 Unprocessable Entity"
+2026-03-03 20:50:00,852 [WARNING] [passlib.handlers.bcrypt] (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\marcc\Documents\timeseriesAPI\backend\.venv\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2026-03-03 20:50:00,853 [DEBUG] [passlib.handlers.bcrypt] detected 'bcrypt' backend, version '<unknown>'
+2026-03-03 20:50:00,863 [INFO] [httpx] HTTP Request: POST http://test/auth/register "HTTP/1.1 400 Bad Request"
+2026-03-03 20:50:00,864 [DEBUG] [python_multipart.multipart] Calling on_field_start with no data
+2026-03-03 20:50:00,864 [DEBUG] [python_multipart.multipart] Calling on_field_name with data[0:8]
+2026-03-03 20:50:00,865 [DEBUG] [python_multipart.multipart] Calling on_field_data with data[9:14]
+2026-03-03 20:50:00,865 [DEBUG] [python_multipart.multipart] Calling on_field_end with no data
+2026-03-03 20:50:00,865 [DEBUG] [python_multipart.multipart] Calling on_field_start with no data
+2026-03-03 20:50:00,865 [DEBUG] [python_multipart.multipart] Calling on_field_name with data[15:23]
+2026-03-03 20:50:00,865 [DEBUG] [python_multipart.multipart] Calling on_field_data with data[24:34]
+2026-03-03 20:50:00,865 [DEBUG] [python_multipart.multipart] Calling on_field_end with no data
+2026-03-03 20:50:00,865 [DEBUG] [python_multipart.multipart] Calling on_end with no data
+2026-03-03 20:50:00,874 [INFO] [httpx] HTTP Request: POST http://test/auth/token "HTTP/1.1 401 Unauthorized"
+2026-03-03 20:50:00,925 [WARNING] [passlib.handlers.bcrypt] (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\marcc\Documents\timeseriesAPI\backend\.venv\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2026-03-03 20:50:00,925 [DEBUG] [passlib.handlers.bcrypt] detected 'bcrypt' backend, version '<unknown>'
+2026-03-03 20:50:00,937 [INFO] [httpx] HTTP Request: POST http://test/auth/register "HTTP/1.1 400 Bad Request"
+2026-03-03 20:50:00,938 [DEBUG] [python_multipart.multipart] Calling on_field_start with no data
+2026-03-03 20:50:00,938 [DEBUG] [python_multipart.multipart] Calling on_field_name with data[0:8]
+2026-03-03 20:50:00,938 [DEBUG] [python_multipart.multipart] Calling on_field_data with data[9:14]
+2026-03-03 20:50:00,938 [DEBUG] [python_multipart.multipart] Calling on_field_end with no data
+2026-03-03 20:50:00,938 [DEBUG] [python_multipart.multipart] Calling on_field_start with no data
+2026-03-03 20:50:00,938 [DEBUG] [python_multipart.multipart] Calling on_field_name with data[15:23]
+2026-03-03 20:50:00,939 [DEBUG] [python_multipart.multipart] Calling on_field_data with data[24:29]
+2026-03-03 20:50:00,939 [DEBUG] [python_multipart.multipart] Calling on_field_end with no data
+2026-03-03 20:50:00,939 [DEBUG] [python_multipart.multipart] Calling on_end with no data
+2026-03-03 20:50:00,945 [INFO] [httpx] HTTP Request: POST http://test/auth/token "HTTP/1.1 401 Unauthorized"
+2026-03-03 20:50:00,984 [DEBUG] [python_multipart.multipart] Calling on_field_start with no data
+2026-03-03 20:50:00,984 [DEBUG] [python_multipart.multipart] Calling on_field_name with data[0:8]
+2026-03-03 20:50:00,984 [DEBUG] [python_multipart.multipart] Calling on_field_data with data[9:15]
+2026-03-03 20:50:00,984 [DEBUG] [python_multipart.multipart] Calling on_field_end with no data
+2026-03-03 20:50:00,984 [DEBUG] [python_multipart.multipart] Calling on_field_start with no data
+2026-03-03 20:50:00,985 [DEBUG] [python_multipart.multipart] Calling on_field_name with data[16:24]
+2026-03-03 20:50:00,985 [DEBUG] [python_multipart.multipart] Calling on_field_data with data[25:27]
+2026-03-03 20:50:00,985 [DEBUG] [python_multipart.multipart] Calling on_field_end with no data
+2026-03-03 20:50:00,985 [DEBUG] [python_multipart.multipart] Calling on_end with no data
+2026-03-03 20:50:00,992 [INFO] [httpx] HTTP Request: POST http://test/auth/token "HTTP/1.1 401 Unauthorized"
+2026-03-03 20:50:01,082 [INFO] [httpx] HTTP Request: POST http://test/timeseries/ "HTTP/1.1 201 Created"
+2026-03-03 20:50:01,158 [INFO] [httpx] HTTP Request: POST http://test/timeseries/ "HTTP/1.1 201 Created"
+2026-03-03 20:50:01,198 [INFO] [httpx] HTTP Request: POST http://test/timeseries/ "HTTP/1.1 422 Unprocessable Entity"
+2026-03-03 20:50:01,243 [INFO] [httpx] HTTP Request: POST http://test/timeseries/ "HTTP/1.1 201 Created"
+2026-03-03 20:50:01,250 [INFO] [httpx] HTTP Request: POST http://test/timeseries/ "HTTP/1.1 201 Created"
+2026-03-03 20:50:01,321 [INFO] [httpx] HTTP Request: POST http://test/timeseries/ "HTTP/1.1 201 Created"
+2026-03-03 20:50:01,331 [INFO] [httpx] HTTP Request: GET http://test/timeseries/5 "HTTP/1.1 200 OK"
+2026-03-03 20:50:01,391 [INFO] [httpx] HTTP Request: GET http://test/timeseries/99999 "HTTP/1.1 404 Not Found"
+2026-03-03 20:51:07,127 [DEBUG] [passlib.utils.compat] loaded lazy attr 'SafeConfigParser': <class 'configparser.ConfigParser'>
+2026-03-03 20:51:07,128 [DEBUG] [passlib.utils.compat] loaded lazy attr 'NativeStringIO': <class '_io.StringIO'>
+2026-03-03 20:51:07,128 [DEBUG] [passlib.utils.compat] loaded lazy attr 'BytesIO': <class '_io.BytesIO'>
+2026-03-03 20:51:07,133 [DEBUG] [passlib.registry] registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2026-03-03 20:51:07,174 [DEBUG] [asyncio] Using proactor: IocpProactor
+2026-03-03 20:51:07,175 [DEBUG] [asyncio] Using proactor: IocpProactor
+2026-03-03 20:51:07,386 [WARNING] [passlib.handlers.bcrypt] (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\marcc\Documents\timeseriesAPI\backend\.venv\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2026-03-03 20:51:07,387 [DEBUG] [passlib.handlers.bcrypt] detected 'bcrypt' backend, version '<unknown>'
+2026-03-03 20:51:07,387 [DEBUG] [passlib.handlers.bcrypt] 'bcrypt' backend lacks $2$ support, enabling workaround
+2026-03-03 20:51:07,397 [INFO] [httpx] HTTP Request: POST http://test/auth/register "HTTP/1.1 400 Bad Request"
+2026-03-03 20:51:07,607 [WARNING] [passlib.handlers.bcrypt] (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\marcc\Documents\timeseriesAPI\backend\.venv\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2026-03-03 20:51:07,608 [DEBUG] [passlib.handlers.bcrypt] detected 'bcrypt' backend, version '<unknown>'
+2026-03-03 20:51:07,616 [INFO] [httpx] HTTP Request: POST http://test/auth/register "HTTP/1.1 400 Bad Request"
+2026-03-03 20:51:07,619 [WARNING] [passlib.handlers.bcrypt] (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\marcc\Documents\timeseriesAPI\backend\.venv\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2026-03-03 20:51:07,620 [DEBUG] [passlib.handlers.bcrypt] detected 'bcrypt' backend, version '<unknown>'
+2026-03-03 20:51:07,627 [INFO] [httpx] HTTP Request: POST http://test/auth/register "HTTP/1.1 400 Bad Request"
+2026-03-03 20:51:07,703 [WARNING] [passlib.handlers.bcrypt] (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\marcc\Documents\timeseriesAPI\backend\.venv\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2026-03-03 20:51:07,704 [DEBUG] [passlib.handlers.bcrypt] detected 'bcrypt' backend, version '<unknown>'
+2026-03-03 20:51:07,714 [INFO] [httpx] HTTP Request: POST http://test/auth/register "HTTP/1.1 400 Bad Request"
+2026-03-03 20:51:07,717 [WARNING] [passlib.handlers.bcrypt] (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\marcc\Documents\timeseriesAPI\backend\.venv\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2026-03-03 20:51:07,718 [DEBUG] [passlib.handlers.bcrypt] detected 'bcrypt' backend, version '<unknown>'
+2026-03-03 20:51:07,727 [INFO] [httpx] HTTP Request: POST http://test/auth/register "HTTP/1.1 400 Bad Request"
+2026-03-03 20:51:07,804 [INFO] [httpx] HTTP Request: POST http://test/auth/register "HTTP/1.1 422 Unprocessable Entity"
+2026-03-03 20:51:07,884 [WARNING] [passlib.handlers.bcrypt] (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\marcc\Documents\timeseriesAPI\backend\.venv\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2026-03-03 20:51:07,885 [DEBUG] [passlib.handlers.bcrypt] detected 'bcrypt' backend, version '<unknown>'
+2026-03-03 20:51:07,894 [INFO] [httpx] HTTP Request: POST http://test/auth/register "HTTP/1.1 400 Bad Request"
+2026-03-03 20:51:07,895 [DEBUG] [python_multipart.multipart] Calling on_field_start with no data
+2026-03-03 20:51:07,895 [DEBUG] [python_multipart.multipart] Calling on_field_name with data[0:8]
+2026-03-03 20:51:07,895 [DEBUG] [python_multipart.multipart] Calling on_field_data with data[9:14]
+2026-03-03 20:51:07,896 [DEBUG] [python_multipart.multipart] Calling on_field_end with no data
+2026-03-03 20:51:07,896 [DEBUG] [python_multipart.multipart] Calling on_field_start with no data
+2026-03-03 20:51:07,896 [DEBUG] [python_multipart.multipart] Calling on_field_name with data[15:23]
+2026-03-03 20:51:07,896 [DEBUG] [python_multipart.multipart] Calling on_field_data with data[24:34]
+2026-03-03 20:51:07,896 [DEBUG] [python_multipart.multipart] Calling on_field_end with no data
+2026-03-03 20:51:07,896 [DEBUG] [python_multipart.multipart] Calling on_end with no data
+2026-03-03 20:51:07,904 [INFO] [httpx] HTTP Request: POST http://test/auth/token "HTTP/1.1 401 Unauthorized"
+2026-03-03 20:51:07,988 [WARNING] [passlib.handlers.bcrypt] (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\marcc\Documents\timeseriesAPI\backend\.venv\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2026-03-03 20:51:07,989 [DEBUG] [passlib.handlers.bcrypt] detected 'bcrypt' backend, version '<unknown>'
+2026-03-03 20:51:08,000 [INFO] [httpx] HTTP Request: POST http://test/auth/register "HTTP/1.1 400 Bad Request"
+2026-03-03 20:51:08,001 [DEBUG] [python_multipart.multipart] Calling on_field_start with no data
+2026-03-03 20:51:08,001 [DEBUG] [python_multipart.multipart] Calling on_field_name with data[0:8]
+2026-03-03 20:51:08,001 [DEBUG] [python_multipart.multipart] Calling on_field_data with data[9:14]
+2026-03-03 20:51:08,002 [DEBUG] [python_multipart.multipart] Calling on_field_end with no data
+2026-03-03 20:51:08,002 [DEBUG] [python_multipart.multipart] Calling on_field_start with no data
+2026-03-03 20:51:08,002 [DEBUG] [python_multipart.multipart] Calling on_field_name with data[15:23]
+2026-03-03 20:51:08,002 [DEBUG] [python_multipart.multipart] Calling on_field_data with data[24:29]
+2026-03-03 20:51:08,002 [DEBUG] [python_multipart.multipart] Calling on_field_end with no data
+2026-03-03 20:51:08,002 [DEBUG] [python_multipart.multipart] Calling on_end with no data
+2026-03-03 20:51:08,008 [INFO] [httpx] HTTP Request: POST http://test/auth/token "HTTP/1.1 401 Unauthorized"
+2026-03-03 20:51:08,090 [DEBUG] [python_multipart.multipart] Calling on_field_start with no data
+2026-03-03 20:51:08,090 [DEBUG] [python_multipart.multipart] Calling on_field_name with data[0:8]
+2026-03-03 20:51:08,090 [DEBUG] [python_multipart.multipart] Calling on_field_data with data[9:15]
+2026-03-03 20:51:08,090 [DEBUG] [python_multipart.multipart] Calling on_field_end with no data
+2026-03-03 20:51:08,090 [DEBUG] [python_multipart.multipart] Calling on_field_start with no data
+2026-03-03 20:51:08,090 [DEBUG] [python_multipart.multipart] Calling on_field_name with data[16:24]
+2026-03-03 20:51:08,090 [DEBUG] [python_multipart.multipart] Calling on_field_data with data[25:27]
+2026-03-03 20:51:08,090 [DEBUG] [python_multipart.multipart] Calling on_field_end with no data
+2026-03-03 20:51:08,090 [DEBUG] [python_multipart.multipart] Calling on_end with no data
+2026-03-03 20:51:08,097 [INFO] [httpx] HTTP Request: POST http://test/auth/token "HTTP/1.1 401 Unauthorized"
+2026-03-03 20:51:08,210 [INFO] [httpx] HTTP Request: POST http://test/timeseries/ "HTTP/1.1 201 Created"
+2026-03-03 20:51:08,310 [INFO] [httpx] HTTP Request: POST http://test/timeseries/ "HTTP/1.1 201 Created"
+2026-03-03 20:51:08,405 [INFO] [httpx] HTTP Request: POST http://test/timeseries/ "HTTP/1.1 422 Unprocessable Entity"
+2026-03-03 20:51:08,494 [INFO] [httpx] HTTP Request: POST http://test/timeseries/ "HTTP/1.1 201 Created"
+2026-03-03 20:51:08,501 [INFO] [httpx] HTTP Request: POST http://test/timeseries/ "HTTP/1.1 201 Created"
+2026-03-03 20:51:08,617 [INFO] [httpx] HTTP Request: POST http://test/timeseries/ "HTTP/1.1 201 Created"
+2026-03-03 20:51:08,629 [INFO] [httpx] HTTP Request: GET http://test/timeseries/5 "HTTP/1.1 200 OK"
+2026-03-03 20:51:08,741 [INFO] [httpx] HTTP Request: GET http://test/timeseries/99999 "HTTP/1.1 404 Not Found"
+2026-03-03 20:57:29,475 [DEBUG] [passlib.utils.compat] loaded lazy attr 'SafeConfigParser': <class 'configparser.ConfigParser'>
+2026-03-03 20:57:29,475 [DEBUG] [passlib.utils.compat] loaded lazy attr 'NativeStringIO': <class '_io.StringIO'>
+2026-03-03 20:57:29,475 [DEBUG] [passlib.utils.compat] loaded lazy attr 'BytesIO': <class '_io.BytesIO'>
+2026-03-03 20:57:29,482 [DEBUG] [passlib.registry] registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2026-03-03 20:57:29,535 [DEBUG] [asyncio] Using proactor: IocpProactor
+2026-03-03 20:57:29,537 [DEBUG] [asyncio] Using proactor: IocpProactor
+2026-03-03 20:57:29,736 [WARNING] [passlib.handlers.bcrypt] (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\marcc\Documents\timeseriesAPI\backend\.venv\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2026-03-03 20:57:29,737 [DEBUG] [passlib.handlers.bcrypt] detected 'bcrypt' backend, version '<unknown>'
+2026-03-03 20:57:29,738 [DEBUG] [passlib.handlers.bcrypt] 'bcrypt' backend lacks $2$ support, enabling workaround
+2026-03-03 20:57:29,746 [INFO] [httpx] HTTP Request: POST http://test/auth/register "HTTP/1.1 400 Bad Request"
+2026-03-03 20:57:29,967 [WARNING] [passlib.handlers.bcrypt] (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\marcc\Documents\timeseriesAPI\backend\.venv\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2026-03-03 20:57:29,968 [DEBUG] [passlib.handlers.bcrypt] detected 'bcrypt' backend, version '<unknown>'
+2026-03-03 20:57:29,976 [INFO] [httpx] HTTP Request: POST http://test/auth/register "HTTP/1.1 400 Bad Request"
+2026-03-03 20:57:29,979 [WARNING] [passlib.handlers.bcrypt] (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\marcc\Documents\timeseriesAPI\backend\.venv\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2026-03-03 20:57:29,980 [DEBUG] [passlib.handlers.bcrypt] detected 'bcrypt' backend, version '<unknown>'
+2026-03-03 20:57:29,988 [INFO] [httpx] HTTP Request: POST http://test/auth/register "HTTP/1.1 400 Bad Request"
+2026-03-03 20:57:30,065 [WARNING] [passlib.handlers.bcrypt] (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\marcc\Documents\timeseriesAPI\backend\.venv\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2026-03-03 20:57:30,065 [DEBUG] [passlib.handlers.bcrypt] detected 'bcrypt' backend, version '<unknown>'
+2026-03-03 20:57:30,074 [INFO] [httpx] HTTP Request: POST http://test/auth/register "HTTP/1.1 400 Bad Request"
+2026-03-03 20:57:30,077 [WARNING] [passlib.handlers.bcrypt] (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\marcc\Documents\timeseriesAPI\backend\.venv\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2026-03-03 20:57:30,077 [DEBUG] [passlib.handlers.bcrypt] detected 'bcrypt' backend, version '<unknown>'
+2026-03-03 20:57:30,086 [INFO] [httpx] HTTP Request: POST http://test/auth/register "HTTP/1.1 400 Bad Request"
+2026-03-03 20:57:30,164 [INFO] [httpx] HTTP Request: POST http://test/auth/register "HTTP/1.1 422 Unprocessable Entity"
+2026-03-03 20:57:30,238 [WARNING] [passlib.handlers.bcrypt] (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\marcc\Documents\timeseriesAPI\backend\.venv\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2026-03-03 20:57:30,239 [DEBUG] [passlib.handlers.bcrypt] detected 'bcrypt' backend, version '<unknown>'
+2026-03-03 20:57:30,249 [INFO] [httpx] HTTP Request: POST http://test/auth/register "HTTP/1.1 400 Bad Request"
+2026-03-03 20:57:30,251 [DEBUG] [python_multipart.multipart] Calling on_field_start with no data
+2026-03-03 20:57:30,251 [DEBUG] [python_multipart.multipart] Calling on_field_name with data[0:8]
+2026-03-03 20:57:30,251 [DEBUG] [python_multipart.multipart] Calling on_field_data with data[9:14]
+2026-03-03 20:57:30,251 [DEBUG] [python_multipart.multipart] Calling on_field_end with no data
+2026-03-03 20:57:30,251 [DEBUG] [python_multipart.multipart] Calling on_field_start with no data
+2026-03-03 20:57:30,251 [DEBUG] [python_multipart.multipart] Calling on_field_name with data[15:23]
+2026-03-03 20:57:30,251 [DEBUG] [python_multipart.multipart] Calling on_field_data with data[24:34]
+2026-03-03 20:57:30,252 [DEBUG] [python_multipart.multipart] Calling on_field_end with no data
+2026-03-03 20:57:30,252 [DEBUG] [python_multipart.multipart] Calling on_end with no data
+2026-03-03 20:57:30,260 [INFO] [httpx] HTTP Request: POST http://test/auth/token "HTTP/1.1 401 Unauthorized"
+2026-03-03 20:57:30,341 [WARNING] [passlib.handlers.bcrypt] (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\marcc\Documents\timeseriesAPI\backend\.venv\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2026-03-03 20:57:30,342 [DEBUG] [passlib.handlers.bcrypt] detected 'bcrypt' backend, version '<unknown>'
+2026-03-03 20:57:30,352 [INFO] [httpx] HTTP Request: POST http://test/auth/register "HTTP/1.1 400 Bad Request"
+2026-03-03 20:57:30,352 [DEBUG] [python_multipart.multipart] Calling on_field_start with no data
+2026-03-03 20:57:30,353 [DEBUG] [python_multipart.multipart] Calling on_field_name with data[0:8]
+2026-03-03 20:57:30,353 [DEBUG] [python_multipart.multipart] Calling on_field_data with data[9:14]
+2026-03-03 20:57:30,353 [DEBUG] [python_multipart.multipart] Calling on_field_end with no data
+2026-03-03 20:57:30,353 [DEBUG] [python_multipart.multipart] Calling on_field_start with no data
+2026-03-03 20:57:30,353 [DEBUG] [python_multipart.multipart] Calling on_field_name with data[15:23]
+2026-03-03 20:57:30,353 [DEBUG] [python_multipart.multipart] Calling on_field_data with data[24:29]
+2026-03-03 20:57:30,353 [DEBUG] [python_multipart.multipart] Calling on_field_end with no data
+2026-03-03 20:57:30,353 [DEBUG] [python_multipart.multipart] Calling on_end with no data
+2026-03-03 20:57:30,359 [INFO] [httpx] HTTP Request: POST http://test/auth/token "HTTP/1.1 401 Unauthorized"
+2026-03-03 20:57:30,442 [DEBUG] [python_multipart.multipart] Calling on_field_start with no data
+2026-03-03 20:57:30,442 [DEBUG] [python_multipart.multipart] Calling on_field_name with data[0:8]
+2026-03-03 20:57:30,442 [DEBUG] [python_multipart.multipart] Calling on_field_data with data[9:15]
+2026-03-03 20:57:30,442 [DEBUG] [python_multipart.multipart] Calling on_field_end with no data
+2026-03-03 20:57:30,442 [DEBUG] [python_multipart.multipart] Calling on_field_start with no data
+2026-03-03 20:57:30,442 [DEBUG] [python_multipart.multipart] Calling on_field_name with data[16:24]
+2026-03-03 20:57:30,442 [DEBUG] [python_multipart.multipart] Calling on_field_data with data[25:27]
+2026-03-03 20:57:30,442 [DEBUG] [python_multipart.multipart] Calling on_field_end with no data
+2026-03-03 20:57:30,442 [DEBUG] [python_multipart.multipart] Calling on_end with no data
+2026-03-03 20:57:30,451 [INFO] [httpx] HTTP Request: POST http://test/auth/token "HTTP/1.1 401 Unauthorized"
+2026-03-03 20:57:30,570 [INFO] [httpx] HTTP Request: POST http://test/timeseries/ "HTTP/1.1 201 Created"
+2026-03-03 20:57:30,665 [INFO] [httpx] HTTP Request: POST http://test/timeseries/ "HTTP/1.1 201 Created"
+2026-03-03 20:57:30,739 [INFO] [httpx] HTTP Request: POST http://test/timeseries/ "HTTP/1.1 422 Unprocessable Entity"
+2026-03-03 20:57:30,824 [INFO] [httpx] HTTP Request: POST http://test/timeseries/ "HTTP/1.1 201 Created"
+2026-03-03 20:57:30,831 [INFO] [httpx] HTTP Request: POST http://test/timeseries/ "HTTP/1.1 201 Created"
+2026-03-03 20:57:30,929 [INFO] [httpx] HTTP Request: POST http://test/timeseries/ "HTTP/1.1 201 Created"
+2026-03-03 20:57:30,940 [INFO] [httpx] HTTP Request: GET http://test/timeseries/5 "HTTP/1.1 200 OK"
+2026-03-03 20:57:31,033 [INFO] [httpx] HTTP Request: GET http://test/timeseries/99999 "HTTP/1.1 404 Not Found"
+2026-03-03 21:00:38,082 [DEBUG] [passlib.utils.compat] loaded lazy attr 'SafeConfigParser': <class 'configparser.ConfigParser'>
+2026-03-03 21:00:38,082 [DEBUG] [passlib.utils.compat] loaded lazy attr 'NativeStringIO': <class '_io.StringIO'>
+2026-03-03 21:00:38,082 [DEBUG] [passlib.utils.compat] loaded lazy attr 'BytesIO': <class '_io.BytesIO'>
+2026-03-03 21:00:38,087 [DEBUG] [passlib.registry] registered 'bcrypt' handler: <class 'passlib.handlers.bcrypt.bcrypt'>
+2026-03-03 21:00:38,126 [DEBUG] [asyncio] Using proactor: IocpProactor
+2026-03-03 21:00:38,127 [DEBUG] [asyncio] Using proactor: IocpProactor
+2026-03-03 21:00:38,314 [WARNING] [passlib.handlers.bcrypt] (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "C:\Users\marcc\Documents\timeseriesAPI\backend\.venv\Lib\site-packages\passlib\handlers\bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+2026-03-03 21:00:38,315 [DEBUG] [passlib.handlers.bcrypt] detected 'bcrypt' backend, version '<unknown>'
+2026-03-03 21:00:38,315 [DEBUG] [passlib.handlers.bcrypt] 'bcrypt' backend lacks $2$ support, enabling workaround
+2026-03-03 21:00:38,324 [INFO] [httpx] HTTP Request: POST http://test/auth/register "HTTP/1.1 400 Bad Request"
+2026-03-03 21:02:13,125 [DEBUG] [asyncio] Using proactor: IocpProactor
+2026-03-03 21:02:13,126 [DEBUG] [asyncio] Using proactor: IocpProactor
+2026-03-03 21:02:13,494 [INFO] [src.services.auth_service] Registered new user: alice
+2026-03-03 21:02:13,496 [INFO] [httpx] HTTP Request: POST http://test/auth/register "HTTP/1.1 201 Created"
+2026-03-03 21:02:13,915 [INFO] [src.services.auth_service] Registered new user: bob
+2026-03-03 21:02:13,916 [INFO] [httpx] HTTP Request: POST http://test/auth/register "HTTP/1.1 201 Created"
+2026-03-03 21:02:13,919 [INFO] [httpx] HTTP Request: POST http://test/auth/register "HTTP/1.1 400 Bad Request"
+2026-03-03 21:02:14,207 [INFO] [src.services.auth_service] Registered new user: carol
+2026-03-03 21:02:14,208 [INFO] [httpx] HTTP Request: POST http://test/auth/register "HTTP/1.1 201 Created"
+2026-03-03 21:02:14,211 [INFO] [httpx] HTTP Request: POST http://test/auth/register "HTTP/1.1 400 Bad Request"
+2026-03-03 21:02:14,281 [INFO] [httpx] HTTP Request: POST http://test/auth/register "HTTP/1.1 422 Unprocessable Entity"
+2026-03-03 21:02:14,620 [INFO] [src.services.auth_service] Registered new user: frank
+2026-03-03 21:02:14,621 [INFO] [httpx] HTTP Request: POST http://test/auth/register "HTTP/1.1 201 Created"
+2026-03-03 21:02:14,622 [DEBUG] [python_multipart.multipart] Calling on_field_start with no data
+2026-03-03 21:02:14,623 [DEBUG] [python_multipart.multipart] Calling on_field_name with data[0:8]
+2026-03-03 21:02:14,623 [DEBUG] [python_multipart.multipart] Calling on_field_data with data[9:14]
+2026-03-03 21:02:14,623 [DEBUG] [python_multipart.multipart] Calling on_field_end with no data
+2026-03-03 21:02:14,623 [DEBUG] [python_multipart.multipart] Calling on_field_start with no data
+2026-03-03 21:02:14,623 [DEBUG] [python_multipart.multipart] Calling on_field_name with data[15:23]
+2026-03-03 21:02:14,623 [DEBUG] [python_multipart.multipart] Calling on_field_data with data[24:34]
+2026-03-03 21:02:14,623 [DEBUG] [python_multipart.multipart] Calling on_field_end with no data
+2026-03-03 21:02:14,623 [DEBUG] [python_multipart.multipart] Calling on_end with no data
+2026-03-03 21:02:14,983 [INFO] [httpx] HTTP Request: POST http://test/auth/token "HTTP/1.1 200 OK"
+2026-03-03 21:02:15,372 [INFO] [src.services.auth_service] Registered new user: grace
+2026-03-03 21:02:15,373 [INFO] [httpx] HTTP Request: POST http://test/auth/register "HTTP/1.1 201 Created"
+2026-03-03 21:02:15,374 [DEBUG] [python_multipart.multipart] Calling on_field_start with no data
+2026-03-03 21:02:15,374 [DEBUG] [python_multipart.multipart] Calling on_field_name with data[0:8]
+2026-03-03 21:02:15,374 [DEBUG] [python_multipart.multipart] Calling on_field_data with data[9:14]
+2026-03-03 21:02:15,374 [DEBUG] [python_multipart.multipart] Calling on_field_end with no data
+2026-03-03 21:02:15,374 [DEBUG] [python_multipart.multipart] Calling on_field_start with no data
+2026-03-03 21:02:15,374 [DEBUG] [python_multipart.multipart] Calling on_field_name with data[15:23]
+2026-03-03 21:02:15,374 [DEBUG] [python_multipart.multipart] Calling on_field_data with data[24:29]
+2026-03-03 21:02:15,374 [DEBUG] [python_multipart.multipart] Calling on_field_end with no data
+2026-03-03 21:02:15,374 [DEBUG] [python_multipart.multipart] Calling on_end with no data
+2026-03-03 21:02:15,567 [INFO] [httpx] HTTP Request: POST http://test/auth/token "HTTP/1.1 401 Unauthorized"
+2026-03-03 21:02:15,639 [DEBUG] [python_multipart.multipart] Calling on_field_start with no data
+2026-03-03 21:02:15,639 [DEBUG] [python_multipart.multipart] Calling on_field_name with data[0:8]
+2026-03-03 21:02:15,639 [DEBUG] [python_multipart.multipart] Calling on_field_data with data[9:15]
+2026-03-03 21:02:15,639 [DEBUG] [python_multipart.multipart] Calling on_field_end with no data
+2026-03-03 21:02:15,639 [DEBUG] [python_multipart.multipart] Calling on_field_start with no data
+2026-03-03 21:02:15,639 [DEBUG] [python_multipart.multipart] Calling on_field_name with data[16:24]
+2026-03-03 21:02:15,639 [DEBUG] [python_multipart.multipart] Calling on_field_data with data[25:27]
+2026-03-03 21:02:15,639 [DEBUG] [python_multipart.multipart] Calling on_field_end with no data
+2026-03-03 21:02:15,639 [DEBUG] [python_multipart.multipart] Calling on_end with no data
+2026-03-03 21:02:15,644 [INFO] [httpx] HTTP Request: POST http://test/auth/token "HTTP/1.1 401 Unauthorized"
+2026-03-03 21:02:15,735 [INFO] [httpx] HTTP Request: POST http://test/timeseries/ "HTTP/1.1 201 Created"
+2026-03-03 21:02:15,824 [INFO] [httpx] HTTP Request: POST http://test/timeseries/ "HTTP/1.1 201 Created"
+2026-03-03 21:02:15,898 [INFO] [httpx] HTTP Request: POST http://test/timeseries/ "HTTP/1.1 422 Unprocessable Entity"
+2026-03-03 21:02:15,981 [INFO] [httpx] HTTP Request: POST http://test/timeseries/ "HTTP/1.1 201 Created"
+2026-03-03 21:02:15,988 [INFO] [httpx] HTTP Request: POST http://test/timeseries/ "HTTP/1.1 201 Created"
+2026-03-03 21:02:16,092 [INFO] [httpx] HTTP Request: POST http://test/timeseries/ "HTTP/1.1 201 Created"
+2026-03-03 21:02:16,103 [INFO] [httpx] HTTP Request: GET http://test/timeseries/5 "HTTP/1.1 200 OK"
+2026-03-03 21:02:16,198 [INFO] [httpx] HTTP Request: GET http://test/timeseries/99999 "HTTP/1.1 404 Not Found"

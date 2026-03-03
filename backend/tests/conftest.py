@@ -25,8 +25,9 @@ TestSessionLocal = sessionmaker(
 
 @pytest.fixture(scope="session", autouse=True)
 async def setup_database():
-    """Create all tables once before the test session, drop them after."""
+    """Drop and recreate all tables before the test session, drop them after."""
     async with test_engine.begin() as conn:
+        await conn.run_sync(Base.metadata.drop_all)
         await conn.run_sync(Base.metadata.create_all)
     yield
     async with test_engine.begin() as conn:
@@ -35,10 +36,12 @@ async def setup_database():
 
 @pytest.fixture(autouse=True)
 async def clean_database(setup_database):
-    """Truncate all tables after each test to ensure isolation."""
+    """Truncate all tables before and after each test to ensure isolation."""
+    async with test_engine.begin() as conn:
+        await conn.execute(text("TRUNCATE TABLE timeseries_data, timeseries, users CASCADE"))
     yield
     async with test_engine.begin() as conn:
-        await conn.execute(text("TRUNCATE TABLE timeseries_data, timeseries CASCADE"))
+        await conn.execute(text("TRUNCATE TABLE timeseries_data, timeseries, users CASCADE"))
 
 
 @pytest.fixture

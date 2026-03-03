@@ -1,14 +1,26 @@
 import pytest
 
 from src.main import app
+from src.core.security import get_current_user
+from src.db.models.user import User
 from src.services.timeseries_service import TimeSeriesService
 from src.api.v1.timeseries import get_timeseries_service
 
 
+def make_test_user():
+    user = User()
+    user.id = 1
+    user.username = "testuser"
+    user.email = "testuser@example.com"
+    user.hashed_password = "x"
+    user.is_active = True
+    return user
+
+
 @pytest.fixture
 async def timeseries_client(client, db_session):
-    """HTTP client with the timeseries service dependency overridden."""
-    async def override():
+    """HTTP client with the timeseries service overridden and auth bypassed."""
+    async def override_service():
         try:
             yield TimeSeriesService(db_session)
             await db_session.commit()
@@ -16,7 +28,11 @@ async def timeseries_client(client, db_session):
             await db_session.rollback()
             raise
 
-    app.dependency_overrides[get_timeseries_service] = override
+    async def override_auth():
+        return make_test_user()
+
+    app.dependency_overrides[get_timeseries_service] = override_service
+    app.dependency_overrides[get_current_user] = override_auth
     yield client
 
 

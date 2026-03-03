@@ -8,7 +8,7 @@ from fastapi import FastAPI
 
 from src.db.schema import Base, engine
 from src.core.config import config
-from src.api.v1 import timeseries
+from src.api.v1 import timeseries, auth
 
 import src.db.init_models
 
@@ -24,4 +24,5 @@ async def lifespan(app: FastAPI):
 app = FastAPI(title=config.app_name, lifespan=lifespan)
 
 
+app.include_router(auth.router)
 app.include_router(timeseries.router)

@@ -1,5 +1,6 @@
 from fastapi import APIRouter, Depends, HTTPException
 
+from src.core.security import get_current_user
 from src.services.timeseries_service import TimeSeriesService
 from src.models.timeseries import TimeSeriesCreate, TimeSeriesDataPointRead, TimeSeriesRead
 from src.db.schema import AsyncSessionLocal
@@ -11,6 +12,7 @@ logger = logging.getLogger(__name__)
 router = APIRouter(
     prefix="/timeseries",
     tags=["timeseries"],
+    dependencies=[Depends(get_current_user)],
 )
 
 
