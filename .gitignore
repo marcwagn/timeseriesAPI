@@ -31,3 +31,7 @@ logs/
 
 # Docker volumes
 postgres_data/
+
+# Benchmark output
+backend/benchmarks/seed_data.json
+backend/benchmarks/results/
