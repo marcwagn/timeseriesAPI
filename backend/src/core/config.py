@@ -14,13 +14,27 @@ class Config(BaseSettings):
     algorithm: str = "HS256"
     access_token_expire_minutes: int = 30
 
+    log_level: str = "INFO"
+
     model_config = {
         "env_file": Path(__file__).resolve().parent.parent / ".env",
         "env_file_encoding": "utf-8",
     }
 
     @property
-    def db_timescale_url(self):
+    def db_host(self) -> str:
+        return self.timescale_dsn.split("/")[0].split(":")[0]
+
+    @property
+    def db_port(self) -> int:
+        return int(self.timescale_dsn.split("/")[0].split(":")[1])
+
+    @property
+    def db_name(self) -> str:
+        return self.timescale_dsn.split("/")[-1]
+
+    @property
+    def db_timescale_url(self) -> str:
         return f"timescaledb+asyncpg://{self.timescale_user}:{self.timescale_password}@{self.timescale_dsn}"
 
 

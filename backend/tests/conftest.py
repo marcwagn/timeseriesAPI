@@ -1,3 +1,4 @@
+import asyncpg
 import pytest
 from contextlib import asynccontextmanager
 from pathlib import Path
@@ -22,10 +23,29 @@ TestSessionLocal = sessionmaker(
     expire_on_commit=False,
 )
 
+async def _ensure_database_exists():
+    """Create the test database if it does not already exist."""
+    conn = await asyncpg.connect(
+        user=test_config.timescale_user,
+        password=test_config.timescale_password,
+        host=test_config.db_host,
+        port=test_config.db_port,
+        database="postgres",
+    )
+    try:
+        exists = await conn.fetchval(
+            "SELECT 1 FROM pg_database WHERE datname = $1", test_config.db_name
+        )
+        if not exists:
+            await conn.execute(f'CREATE DATABASE "{test_config.db_name}"')
+    finally:
+        await conn.close()
+
 
 @pytest.fixture(scope="session", autouse=True)
 async def setup_database():
-    """Drop and recreate all tables before the test session, drop them after."""
+    """Create the test database if needed, then drop and recreate all tables."""
+    await _ensure_database_exists()
     async with test_engine.begin() as conn:
         await conn.run_sync(Base.metadata.drop_all)
         await conn.run_sync(Base.metadata.create_all)

@@ -16,14 +16,40 @@ oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/auth/token")
 
 
 def hash_password(plain_password: str) -> str:
+    """Hash a plain-text password using bcrypt with a randomly generated salt.
+
+    Args:
+        plain_password: The plain-text password to hash.
+
+    Returns:
+        A bcrypt hash string containing the salt and hashed password.
+    """
     return bcrypt.hashpw(plain_password.encode(), bcrypt.gensalt()).decode()
 
 
 def verify_password(plain_password: str, hashed_password: str) -> bool:
+    """Verify a plain-text password against a bcrypt hash.
+
+    Args:
+        plain_password: The plain-text password to check.
+        hashed_password: The bcrypt hash to check against.
+
+    Returns:
+        True if the password matches the hash, False otherwise.
+    """
     return bcrypt.checkpw(plain_password.encode(), hashed_password.encode())
 
 
 def create_access_token(data: dict, expires_delta: timedelta | None = None) -> str:
+    """Create a signed JWT access token.
+
+    Args:
+        data: Payload to encode in the token (e.g. `{"sub": username}`).
+        expires_delta: Token lifetime. Defaults to `config.access_token_expire_minutes`.
+
+    Returns:
+        A signed JWT string.
+    """
     to_encode = data.copy()
     expire = datetime.now(timezone.utc) + (
         expires_delta or timedelta(minutes=config.access_token_expire_minutes)
