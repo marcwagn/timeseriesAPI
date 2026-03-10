@@ -22,12 +22,6 @@ class TimeSeriesDataPoint(BaseModel):
         return value
 
 
-class TimeSeriesDataPointRead(BaseModel):
-    timestamp: datetime
-    value: float
-    status: StatusEnum
-
-
 class TimeSeriesCreate(BaseModel):
     name: str
     data: list[TimeSeriesDataPoint]
@@ -37,4 +31,4 @@ class TimeSeriesRead(BaseModel):
     id: int
     name: str
     data_count: int
-    data: list[TimeSeriesDataPointRead] = []
+    data: list[TimeSeriesDataPoint] = []

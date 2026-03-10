@@ -1,8 +1,12 @@
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends, HTTPException, status
 
 from src.core.security import get_current_user
 from src.services.timeseries_service import TimeSeriesService
-from src.models.timeseries import TimeSeriesCreate, TimeSeriesDataPointRead, TimeSeriesRead
+from src.models.timeseries import (
+    TimeSeriesCreate,
+    TimeSeriesDataPoint,
+    TimeSeriesRead,
+)
 from src.db.schema import AsyncSessionLocal
 
 import logging
@@ -28,7 +32,7 @@ async def get_timeseries_service():
             await session.close()
 
 
-@router.post("/", response_model=TimeSeriesRead, status_code=201)
+@router.post("/", response_model=TimeSeriesRead, status_code=status.HTTP_201_CREATED)
 async def create_timeseries(
     timeseries: TimeSeriesCreate,
     service: TimeSeriesService = Depends(get_timeseries_service),
@@ -53,7 +57,19 @@ async def get_timeseries(
         name=ts.name,
         data_count=len(data),
         data=[
-            TimeSeriesDataPointRead(timestamp=d.timestamp, value=d.value, status=d.status)
+            TimeSeriesDataPoint(timestamp=d.timestamp, value=d.value, status=d.status)
             for d in data
         ],
     )
+
+
+@router.delete("/{timeseries_id}", status_code=status.HTTP_204_NO_CONTENT)
+async def delete_timeseries(
+    timeseries_id: int,
+    service: TimeSeriesService = Depends(get_timeseries_service),
+):
+    deleted = await service.delete_timeseries(timeseries_id=timeseries_id)
+    if not deleted:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND, detail="Timeseries not found"
+        )

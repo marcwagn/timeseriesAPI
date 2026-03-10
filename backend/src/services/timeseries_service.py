@@ -1,5 +1,5 @@
 from sqlalchemy.ext.asyncio import AsyncSession
-from sqlalchemy import select, delete
+from sqlalchemy import select, delete, exists
 from sqlalchemy.dialects.postgresql import insert
 from src.db.models.timeseries import TimeSeries, TimeSeriesData
 from src.models.timeseries import TimeSeriesDataPoint
@@ -12,6 +12,11 @@ logger = logging.getLogger(__name__)
 class TimeSeriesService:
     def __init__(self, session: AsyncSession):
         self._session = session
+
+    async def timeseries_exists(self, timeseries_id: int) -> bool:
+        return await self._session.scalar(
+            select(exists().where(TimeSeries.id == timeseries_id))
+        )
 
     async def create_timeseries(
         self, name: str, data: list[TimeSeriesDataPoint] | None = None
@@ -77,11 +82,14 @@ class TimeSeriesService:
         return ts
 
     async def delete_timeseries(self, timeseries_id: int) -> bool:
-        ts = await self.get_timeseries(timeseries_id)
-        if ts is None:
+        if not await self.timeseries_exists(timeseries_id):
             return False
+        # delete timeseries data
         await self._session.execute(
             delete(TimeSeriesData).where(TimeSeriesData.timeseries_id == timeseries_id)
         )
-        await self._session.delete(ts)
+        # delete timeseries
+        await self._session.execute(
+            delete(TimeSeries).where(TimeSeries.id == timeseries_id)
+        )
         return True
