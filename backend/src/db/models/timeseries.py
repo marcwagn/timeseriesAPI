@@ -37,11 +37,11 @@ class TimeSeriesData(Base):
 
     id: Mapped[int] = mapped_column(Sequence("timeseries_data_id_seq"))
     timeseries_id: Mapped[int] = mapped_column()
-    timestamp: Mapped[datetime] = mapped_column(DateTime, nullable=False)
+    timestamp: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False)
     value: Mapped[float] = mapped_column(nullable=False)
     status: Mapped[StatusEnum] = mapped_column(String(1), nullable=False)
     created_at: Mapped[datetime] = mapped_column(
-        server_default=text("clock_timestamp()"), nullable=False
+        DateTime(timezone=True), server_default=text("clock_timestamp()"), nullable=False
     )
 
     __table_args__ = (

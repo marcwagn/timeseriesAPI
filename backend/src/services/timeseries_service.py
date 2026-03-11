@@ -1,5 +1,6 @@
 from sqlalchemy.ext.asyncio import AsyncSession
-from sqlalchemy import select, delete, exists
+from sqlalchemy import select, delete, exists, func
+from datetime import datetime
 from sqlalchemy.dialects.postgresql import insert
 from src.db.models.timeseries import TimeSeries, TimeSeriesData
 from src.models.timeseries import TimeSeriesDataPoint
@@ -55,31 +56,59 @@ class TimeSeriesService:
         return ts
 
     async def get_timeseries(
-        self, timeseries_id: int
+        self,
+        timeseries_id: int,
+        after: datetime | None = None,
+        limit: int = 1000,
     ) -> tuple[TimeSeries, list[TimeSeriesData]] | None:
         ts = await self._session.scalar(
             select(TimeSeries).where(TimeSeries.id == timeseries_id)
         )
         if ts is None:
             return None
-        result = await self._session.execute(
+        query = (
             select(TimeSeriesData)
             .distinct(TimeSeriesData.timestamp)
             .where(TimeSeriesData.timeseries_id == timeseries_id)
             .order_by(TimeSeriesData.timestamp, TimeSeriesData.created_at.desc())
+            .limit(limit)
         )
+        if after is not None:
+            query = query.where(TimeSeriesData.timestamp > after)
+        result = await self._session.execute(query)
         data = result.scalars().all()
         return ts, data
 
-    async def update_timeseries(
-        self, timeseries_id: int, updates: dict
-    ) -> TimeSeries | None:
-        ts = await self.get_timeseries(timeseries_id)
-        if ts is None:
+    async def list_timeseries(
+        self, offset: int = 0, limit: int = 50
+    ) -> tuple[int, list]:
+        total = await self._session.scalar(select(func.count()).select_from(TimeSeries))
+        result = await self._session.execute(
+            # Comment: discard the skipped rows, so it gets slower as offset grows
+            select(TimeSeries.id, TimeSeries.name)
+            .offset(offset)
+            .limit(limit)
+        )
+        return total, result.all()
+
+    async def append_timeseries_data(
+        self, timeseries_id: int, data: list[TimeSeriesDataPoint]
+    ) -> int | None:
+        if not await self.timeseries_exists(timeseries_id):
             return None
-        for key, value in updates.items():
-            setattr(ts, key, value)
-        return ts
+        await self._session.execute(
+            insert(TimeSeriesData),
+            [
+                {
+                    "timeseries_id": timeseries_id,
+                    "timestamp": dp.timestamp,
+                    "value": dp.value,
+                    "status": dp.status,
+                }
+                for dp in data
+            ],
+        )
+        return len(data)
 
     async def delete_timeseries(self, timeseries_id: int) -> bool:
         if not await self.timeseries_exists(timeseries_id):

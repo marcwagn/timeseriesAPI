@@ -1,4 +1,4 @@
-from pydantic import BaseModel, field_validator
+from pydantic import BaseModel
 from datetime import datetime
 from enum import Enum
 
@@ -14,13 +14,6 @@ class TimeSeriesDataPoint(BaseModel):
     value: float
     status: StatusEnum
 
-    @field_validator("timestamp", mode="before")
-    @classmethod
-    def parse_custom_datetime(cls, value):
-        if isinstance(value, str):
-            return datetime.strptime(value, "%d.%m.%Y %H:%M")
-        return value
-
 
 class TimeSeriesCreate(BaseModel):
     name: str
@@ -31,4 +24,23 @@ class TimeSeriesRead(BaseModel):
     id: int
     name: str
     data_count: int
+    next_cursor: datetime | None = None
     data: list[TimeSeriesDataPoint] = []
+
+
+class TimeSeriesListItem(BaseModel):
+    id: int
+    name: str
+
+
+class TimeSeriesListResponse(BaseModel):
+    total: int
+    items: list[TimeSeriesListItem]
+
+
+class TimeSeriesAppend(BaseModel):
+    data: list[TimeSeriesDataPoint]
+
+
+class TimeSeriesAppendResponse(BaseModel):
+    appended_count: int
