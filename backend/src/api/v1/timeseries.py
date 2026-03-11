@@ -84,11 +84,17 @@ async def append_timeseries(
 async def get_timeseries(
     timeseries_id: int,
     after: datetime | None = Query(default=None),
+    before: datetime | None = Query(default=None),
     limit: int = Query(default=1000, ge=1, le=10000),
     service: TimeSeriesService = Depends(get_timeseries_service),
 ):
-    """Retrieve a timeseries with its data points. Supports keyset pagination via `after` and `limit`."""
-    result = await service.get_timeseries(timeseries_id, after=after, limit=limit)
+    """Retrieve a timeseries with its data points. Supports time range filtering via `after`/`before` and keyset pagination via `limit`."""
+    if after is not None and before is not None and after >= before:
+        raise HTTPException(
+            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+            detail="'after' must be earlier than 'before'",
+        )
+    result = await service.get_timeseries(timeseries_id, after=after, before=before, limit=limit)
     if result is None:
         raise HTTPException(
             status_code=404, detail=f"Timeseries {timeseries_id} not found"

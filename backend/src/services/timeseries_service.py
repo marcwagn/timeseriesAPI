@@ -59,6 +59,7 @@ class TimeSeriesService:
         self,
         timeseries_id: int,
         after: datetime | None = None,
+        before: datetime | None = None,
         limit: int = 1000,
     ) -> tuple[TimeSeries, list[TimeSeriesData]] | None:
         ts = await self._session.scalar(
@@ -75,6 +76,8 @@ class TimeSeriesService:
         )
         if after is not None:
             query = query.where(TimeSeriesData.timestamp > after)
+        if before is not None:
+            query = query.where(TimeSeriesData.timestamp < before)
         result = await self._session.execute(query)
         data = result.scalars().all()
         return ts, data
