@@ -20,20 +20,22 @@ class TimeSeriesService:
         )
 
     async def create_timeseries(
-        self, name: str, data: list[TimeSeriesDataPoint] | None = None
+        self, name: str, owner_id: int, data: list[TimeSeriesDataPoint] | None = None
     ) -> TimeSeries:
         result = await self._session.execute(
             insert(TimeSeries)
-            .values(name=name)
+            .values(name=name, owner_id=owner_id)
             .on_conflict_do_nothing(index_elements=["name"])
             .returning(TimeSeries)
         )
         ts = result.scalar_one_or_none()
 
         if ts is None:
-            # Already exists, fetch it
+            # Already exists, fetch it (only if owned by this user)
             ts = await self._session.scalar(
-                select(TimeSeries).where(TimeSeries.name == name)
+                select(TimeSeries).where(
+                    TimeSeries.name == name, TimeSeries.owner_id == owner_id
+                )
             )
 
         if ts is None:

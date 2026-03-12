@@ -10,6 +10,9 @@ class Config(BaseSettings):
     timescale_password: str = ""
     timescale_dsn: str = ""
 
+    migration_user: str = "postgres"
+    migration_password: str = "postgres"
+
     secret_key: str = ""
     algorithm: str = "HS256"
     access_token_expire_minutes: int = 30
@@ -36,6 +39,10 @@ class Config(BaseSettings):
     @property
     def db_timescale_url(self) -> str:
         return f"timescaledb+asyncpg://{self.timescale_user}:{self.timescale_password}@{self.timescale_dsn}"
+
+    @property
+    def db_migration_url(self) -> str:
+        return f"timescaledb+asyncpg://{self.migration_user}:{self.migration_password}@{self.timescale_dsn}"
 
 
 config = Config()

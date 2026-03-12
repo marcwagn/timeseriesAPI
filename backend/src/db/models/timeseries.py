@@ -23,12 +23,14 @@ class TimeSeries(Base):
     id: Mapped[int] = mapped_column(Sequence("timeseries_id_seq"))
     name: Mapped[str] = mapped_column(String(50), nullable=False)
     description: Mapped[str | None] = mapped_column(String(100))
+    owner_id: Mapped[int] = mapped_column(nullable=False)
 
     data: Mapped[list["TimeSeriesData"]] = relationship("TimeSeriesData", lazy="noload")
 
     __table_args__ = (
         PrimaryKeyConstraint("id", name="pk_timeseries_id"),
         UniqueConstraint("name", name="uq_timeseries_name"),
+        ForeignKeyConstraint(["owner_id"], ["users.id"], name="fk_timeseries_owner_id"),
     )
 
 

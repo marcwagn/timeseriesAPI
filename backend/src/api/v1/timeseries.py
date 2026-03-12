@@ -1,7 +1,9 @@
 from fastapi import APIRouter, Depends, HTTPException, Query, status
 from datetime import datetime
+from sqlalchemy import text
 
 from src.core.security import get_current_user
+from src.db.models.user import User
 from src.services.timeseries_service import TimeSeriesService
 from src.models.timeseries import (
     TimeSeriesCreate,
@@ -25,13 +27,17 @@ router = APIRouter(
 )
 
 
-async def get_timeseries_service():
+async def get_timeseries_service(
+    current_user: User = Depends(get_current_user),
+):
     async with AsyncSessionLocal() as session:
         try:
-            yield TimeSeriesService(session)
-            await session.commit()  # ← commit after the endpoint returns
+            async with session.begin():
+                await session.execute(
+                    text(f"SET LOCAL app.current_user_id = {int(current_user.id)}")
+                )
+                yield TimeSeriesService(session)
         except Exception:
-            await session.rollback()  # ← rollback on any error
             raise
         finally:
             await session.close()
@@ -55,9 +61,12 @@ async def list_timeseries(
 async def create_timeseries(
     timeseries: TimeSeriesCreate,
     service: TimeSeriesService = Depends(get_timeseries_service),
+    current_user: User = Depends(get_current_user),
 ):
     """Create a new timeseries and optionally insert initial data points."""
-    ts = await service.create_timeseries(name=timeseries.name, data=timeseries.data)
+    ts = await service.create_timeseries(
+        name=timeseries.name, owner_id=current_user.id, data=timeseries.data
+    )
     return TimeSeriesRead(id=ts.id, name=ts.name, data_count=len(timeseries.data))
 
 
@@ -94,10 +103,13 @@ async def get_timeseries(
             status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
             detail="'after' must be earlier than 'before'",
         )
-    result = await service.get_timeseries(timeseries_id, after=after, before=before, limit=limit)
+    result = await service.get_timeseries(
+        timeseries_id, after=after, before=before, limit=limit
+    )
     if result is None:
         raise HTTPException(
-            status_code=404, detail=f"Timeseries {timeseries_id} not found"
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail=f"Timeseries {timeseries_id} not found",
         )
     ts, data = result
     next_cursor = data[-1].timestamp if len(data) == limit else None

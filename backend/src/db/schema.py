@@ -13,6 +13,11 @@ engine = create_async_engine(
     echo=True,
 )
 
+migration_engine = create_async_engine(
+    config.db_migration_url,
+    echo=True,
+)
+
 AsyncSessionLocal = sessionmaker(
     bind=engine,
     class_=AsyncSession,
