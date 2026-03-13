@@ -30,6 +30,11 @@ _credentials: dict[str, str] = _seed.get(
     {"username": "benchmark_user", "password": "benchmark_password_123"},
 )
 
+# Load xlarge IDs written by seed_xlarge.py
+_xlarge_seed_file = Path(__file__).parent / "seed_xlarge_data.json"
+_xlarge_seed = json.loads(_xlarge_seed_file.read_text()) if _xlarge_seed_file.exists() else {}
+_xlarge_ids: list[int] = _xlarge_seed.get("xlarge_ids", [])
+
 
 def _generate_points(n: int) -> list[dict]:
     base = datetime(2024, 1, 1, 0, 0)
@@ -113,6 +118,18 @@ class TimeseriesUser(HttpUser):
                 name="GET /timeseries/[xlarge]",
                 timeout=60,
             )
+
+    @task(3)
+    def read_xlarge_bulk(self):
+        if not _xlarge_ids:
+            return
+        ts_id = random.choice(_xlarge_ids)
+        self.client.get(
+            f"/timeseries/{ts_id}",
+            headers=self._auth,
+            name="GET /timeseries/[xlarge-bulk]",
+            timeout=60,
+        )
 
     # ── Write tasks ───────────────────────────────────────────────────────────
 

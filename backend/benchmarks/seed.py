@@ -46,19 +46,25 @@ def main():
 
     with httpx.Client(base_url=host, timeout=120) as client:
         # Register benchmark user (ignore 400 if already exists)
-        resp = client.post("/auth/register", json={
-            "username": BENCHMARK_USER,
-            "email": BENCHMARK_EMAIL,
-            "password": BENCHMARK_PASSWORD,
-        })
+        resp = client.post(
+            "/auth/register",
+            json={
+                "username": BENCHMARK_USER,
+                "email": BENCHMARK_EMAIL,
+                "password": BENCHMARK_PASSWORD,
+            },
+        )
         if resp.status_code not in (201, 400):
             resp.raise_for_status()
 
         # Authenticate
-        resp = client.post("/auth/token", data={
-            "username": BENCHMARK_USER,
-            "password": BENCHMARK_PASSWORD,
-        })
+        resp = client.post(
+            "/auth/token",
+            data={
+                "username": BENCHMARK_USER,
+                "password": BENCHMARK_PASSWORD,
+            },
+        )
         resp.raise_for_status()
         token = resp.json()["access_token"]
         headers = {"Authorization": f"Bearer {token}"}
@@ -67,23 +73,33 @@ def main():
         seed_ids: dict[str, int] = {}
         for size_name, n_points in SIZES.items():
             print(f"Creating {size_name} timeseries ({n_points} points)...")
-            resp = client.post("/timeseries/", json={
-                "name": f"benchmark_{size_name}",
-                "data": generate_data_points(n_points),
-            }, headers=headers, timeout=120)
+            resp = client.post(
+                "/timeseries/",
+                json={
+                    "name": f"benchmark_{size_name}",
+                    "data": generate_data_points(n_points),
+                },
+                headers=headers,
+                timeout=120,
+            )
             resp.raise_for_status()
             seed_ids[size_name] = resp.json()["id"]
             print(f"  -> id={seed_ids[size_name]}")
 
     output = Path(__file__).parent / "seed_data.json"
-    output.write_text(json.dumps({
-        "host": host,
-        "credentials": {
-            "username": BENCHMARK_USER,
-            "password": BENCHMARK_PASSWORD,
-        },
-        "timeseries_ids": seed_ids,
-    }, indent=2))
+    output.write_text(
+        json.dumps(
+            {
+                "host": host,
+                "credentials": {
+                    "username": BENCHMARK_USER,
+                    "password": BENCHMARK_PASSWORD,
+                },
+                "timeseries_ids": seed_ids,
+            },
+            indent=2,
+        )
+    )
     print(f"\nSeed data written to {output}")
 
 
