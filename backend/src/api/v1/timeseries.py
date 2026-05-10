@@ -94,7 +94,7 @@ async def get_timeseries(
     timeseries_id: int,
     after: datetime | None = Query(default=None),
     before: datetime | None = Query(default=None),
-    limit: int = Query(default=1000, ge=1, le=10000),
+    limit: int = Query(default=1000, ge=1, le=100000),
     service: TimeSeriesService = Depends(get_timeseries_service),
 ):
     """Retrieve a timeseries with its data points. Supports time range filtering via `after`/`before` and keyset pagination via `limit`."""

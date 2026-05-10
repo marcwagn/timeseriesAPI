@@ -12,6 +12,7 @@ env/
 # Environment files (contain credentials)
 .env
 .env.*
+!.env.example
 
 # pytest
 .pytest_cache/
