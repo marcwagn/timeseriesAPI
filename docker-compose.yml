@@ -17,7 +17,7 @@ services:
       - "-c"
       - "checkpoint_completion_target=0.9"
       - "-c"
-      - "synchronous_commit=off"
+      - "synchronous_commit=on"
       - "-c"
       - "max_wal_size=2GB"
     environment:
